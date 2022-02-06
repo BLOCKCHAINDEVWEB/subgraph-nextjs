@@ -12,11 +12,22 @@ Clone code:
 git clone https://github.com/BLOCKCHAINDEVWEB/subgraph-nextjs.git
 cd subgraph-nextjs
 ```
-Install dependencies and run Dapp:
+
+Duplicate the .env file given as an example:
+```bash
+cd client
+cp .env.sample .env
+```
+
+Complete your .env file with
+```bash
+NEXT_PUBLIC_TEMPORARY_QUERY_URL=https://api.studio.thegraph.com/query/11783/zola/0.1.0
+```
+
+Install dependencies:
 ```bash
 cd client
 yarn
-npm run dev
 ```
 
 ## Create your subgraph
@@ -49,12 +60,13 @@ $  graph auth --studio
 
 3. generate types for contract ABIs and GraphQL schema
 ```bash
-$ graph codegen
+$ graph codegen && graph build
 ```
 
 3. deploy your code
 ```bash
 $ graph deploy --studio zola
+? Version Label (e.g. v0.0.1) · v0.0.1
 ```
 
 Open your subgraph
